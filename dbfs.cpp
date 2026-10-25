@@ -39,6 +39,7 @@ int readdb() {
     }
     sleep(3);
     ogFile.close();
+    return 0;
 
 }
 int writedb() {
@@ -47,7 +48,7 @@ int writedb() {
     string currtime;
     ofstream outFile(filepath(), ios::app);
     system("clear");
-    cout << "Type what you would like to place inside the database\n";
+    cout << "Insert text into the database by typing the text \n";
     getline(cin, outputot);
 
     outFile << timestring() +  " " + outputot + "\n";
@@ -69,7 +70,7 @@ int main() {
         ifstream check(filepath());
         if (check.peek() == ifstream::traits_type::eof()) {
             cout << "Nothing found in Database, continuing...  \n";
-            return 1;
+            sleep(1);
         }
         else {
             readdb();
